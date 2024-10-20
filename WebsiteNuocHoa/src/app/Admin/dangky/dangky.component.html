@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .con {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ece8e8;
+        }
+
+        .login__form {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            color: #444444;
+            box-sizing: border-box;
+        }
+
+        .login__form img {
+            max-width: 150px;
+            margin-bottom: 1rem;
+        }
+
+        .form__heading {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            color: #0c6e5b;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input {
+            padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+            border-radius: 0.25rem;
+            border: none;
+            width: 100%;
+            box-sizing: border-box;
+            border: 2px solid #0c6e5b;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #499485;
+            outline: none;
+        }
+
+        .form-group .fa {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #0c6e5b;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #0c6e5b;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #499485;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 1rem;
+            display: none; /* Ẩn thông báo lỗi mặc định */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="con">
+        <form class="login__form" (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+            <h2 class="form__heading">ĐĂNG KÝ</h2>
+        
+            <!-- Username Field -->
+            <div class="form-group">
+              <i class="fa fa-user"></i>
+              <input type="text" formControlName="tennd" placeholder="Tên người dùng" required>
+            </div>
+        
+            <!-- Email Field -->
+            <div class="form-group">
+              <i class="fa fa-envelope"></i>
+              <input type="email" formControlName="email" placeholder="Email" required>
+            </div>
+        
+            <!-- Password Field -->
+            <div class="form-group">
+              <i class="fa fa-lock"></i>
+              <input type="password" formControlName="matkhau" placeholder="Mật khẩu" required>
+            </div>
+        
+            <!-- Confirm Password Field -->
+            <div class="form-group">
+              <i class="fa fa-lock"></i>
+              <input type="password" formControlName="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+            </div>
+        
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-lg" [disabled]="!registerForm.valid">Đăng ký</button>
+        
+            <!-- Error and Success Messages -->
+            <div *ngIf="message" class="error-message">{{ message }}</div>
+            <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+          </form>
+    </div>
+</body>
+</html>

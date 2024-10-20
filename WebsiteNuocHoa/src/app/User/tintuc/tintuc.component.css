@@ -1,0 +1,721 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #ebd6d6;
+    color: #fff;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fafbfb;
+}
+
+.logo-search {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #eff7f5;
+    border-radius: 20px;
+    padding: 4px;
+    margin-left:220px;
+}
+
+.search-bar input {
+    border: none;
+    background-color: #eff7f5;
+    color: #fff;
+    padding: 4px;
+    width: 500px;
+    font-size: 16px;
+    margin-left: 15px;
+    border: none;
+    outline: none;
+}
+
+.search-btn {
+    background-color: #0c6e5b;
+    border: none;
+    padding: 4px 20px;
+    cursor: pointer;
+    border-radius: 0 20px 20px 0;
+}
+.fa-search{
+    color:#fff;
+}
+.menu-items {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    padding: 10px;
+    background: #0c6e5b;
+}
+
+.menu-items a {
+    color: #fff;
+    margin: 0 20px;
+    text-decoration: none;
+}
+
+.user-options {
+    display: flex;
+}
+
+.user-options a {
+    color: #0e0d0d;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.user-options a:last-child {
+    position: relative;
+}
+
+.user-options i{
+    margin-right: 12px;
+}
+
+.user-options a:last-child::after {
+    content: '0';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #ffca28;
+    color: #fff;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-size: 12px;
+}
+/*------------ Siler bannner -----------------*/
+.slider {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.slider-wrapper {
+    flex: 2; 
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; 
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    
+}
+
+.slide img {
+    width: 100%;
+    display: block;
+}
+
+/* Slider Ckick */
+.slider-controls {
+    position: absolute;
+    width: 97%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    margin-left: 12px;
+}
+
+.slider-controls .prev, .slider-controls .next {
+    cursor: pointer;
+    background-color: rgba(201, 201, 201, 0.5);
+    color: #fff;
+    font-size: 30px;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.slider-controls .prev:hover, .slider-controls .next:hover {
+    background-color: rgba(167, 164, 164, 0.5);
+}
+
+/* Ảnh 2 chia làm 2 cột bên trái */
+.slider2 {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.anh2 img {
+    width: 98%;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.service-icons {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.service-item {
+    text-align: center;
+    max-width: 200px;
+}
+
+.service-item img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.service-item span {
+    color: #666;
+    font-size: 14px;
+}
+/*------------------------ Danh mục ---------------------------*/
+.main-content {
+    padding: 20px;
+}
+h3{
+    text-align: center;
+    font-size: 24px;
+}
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.category-item {
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.3s, background-color 0.3s;
+    margin: 15px;
+}
+.category-image {
+    height: auto;
+    max-width: 120px;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.3s, background-color 0.3s;
+    border-radius: 50%;
+    background-color: #3095a7;
+    padding: 15px;
+    border: 3px solid #1f2020;
+}
+/*----------------Sản phẩm -------------*/
+
+.product-grid h2 {
+    margin-top: -20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+    background: #3095a7;
+    margin-bottom: 10px;
+}
+
+.product {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product img {
+    width: 100%;
+    height: 200px; /* Set a fixed height for the image */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.product h2 {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product .price {
+    font-size: 18px;
+    color: #3095a7;
+    margin: 10px 0;
+}
+
+.product .contact {
+    color: #3095a7;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #3095a7;
+    background-color: white;
+    color: #3095a7;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    align-self: center; /* Center the button horizontally */
+}
+
+.btn:hover {
+    background-color: #3095a7;
+    color: white;
+}
+/*---------------- Tin tức mới -----------------*/
+.content-container {
+    display: flex; /* Use flexbox to create a flexible layout */
+    gap: 20px; /* Add space between the columns */
+}
+ h4{
+    font-size: 22px;
+ }
+.sidebar {
+    width: 300px;
+    float: left;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+ul {
+    list-style-type: none; /* Bỏ dấu chấm đầu dòng */
+    padding: 0; /* Bỏ khoảng cách bên trái */
+    margin: 0; /* Bỏ khoảng cách bên ngoài */
+}
+
+ul li {
+    border-top: 1px solid #ccc; /* Đường viền phía dưới */
+    padding: 10px 0; /* Khoảng cách trên và dưới */
+}
+.featured ul {
+    list-style-type: none; /* Bỏ dấu chấm đầu dòng */
+}
+
+.featured li {
+    display: flex;
+    margin-bottom: -25px;  /* Khoảng cách giữa các mục */
+}
+
+.featured img {
+    margin-right: 5px; /* Khoảng cách giữa hình ảnh và văn bản */
+    width: 100px; /* Chiều rộng hình ảnh */
+    height: 90px; /* Chiều cao tự động */
+}
+
+.featured p {
+   margin-left: -20px;
+}
+
+.news {
+    flex: 2; /* Takes up 2 parts of the available space */
+    padding: 30px; /* Add some padding */
+    border: 1px solid #ddd; /* Optional: Add a border */
+}
+
+.latest-posts ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+}
+
+.latest-posts li {
+    margin-bottom: 10px; /* Add space between list items */
+}
+
+.news-item {
+    display: flex; /* Use flexbox for the news items */
+    margin-bottom: 20px; /* Space between news items */
+}
+
+.news-item img {
+    width: 100px; /* Set a width for the images */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 15px; /* Space between image and content */
+}
+
+.news-content {
+    flex-grow: 1; /* Allow the content to take remaining space */
+}
+
+.news {
+    padding: 20px; /* Add padding around the news section */
+    background-color: #f4f4f4; /* Optional: Add a light background color */
+    border-radius: 8px; /* Optional: Round the corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.news h2 {
+    margin-bottom: 20px; /* Space below the heading */
+    font-size: 24px; /* Increase the font size */
+    color: #333; /* Darker color for better readability */
+}
+
+.news-item {
+    display: flex; /* Use flexbox for the news items */
+    margin-bottom: 15px; /* Space between news items */
+    padding: 15px; /* Add padding within each news item */
+    background-color: #fff; /* White background for each item */
+    border-radius: 5px; /* Slightly round the corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+    transition: transform 0.3s; /* Add a transition effect */
+}
+
+.news-item:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+.news-item img {
+    width: 100px; /* Set a fixed width for the images */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 15px; /* Space between image and content */
+    border-radius: 5px; /* Optional: Round the image corners */
+}
+
+.news-content {
+    flex-grow: 1; /* Allow the content to take remaining space */
+}
+
+.news-content .date {
+    display: block; /* Make the date take up a full line */
+    font-size: 14px; /* Smaller font for the date */
+    color: #666; /* Gray color for the date */
+    margin-bottom: 5px; /* Space below the date */
+}
+
+.news-content h4 {
+    margin: 0; /* Remove default margin */
+    font-size: 18px; /* Adjust the font size for the title */
+    color: #333; /* Darker color for better readability */
+}
+
+.news-content p {
+    margin: 5px 0 15px; /* Space around the paragraph */
+    color: #555; /* Slightly lighter color for the text */
+}
+
+.news-content a {
+    display: inline-block; /* Make the link a block element */
+    padding: 8px 12px; /* Add padding for a button-like appearance */
+    background-color: #0c6e5b; /* Button color */
+    color: white; /* Button text color */
+    border-radius: 5px; /* Round the button corners */
+    text-decoration: none; /* Remove underline from link */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.news-content a:hover {
+    background-color: #0c6e5b; /* Darken button color on hover */
+}
+
+/*--------------- Gioithieu ---------------------------*/
+
+h1{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+.main-content p{
+    font-size: 15px;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+/*------------ footer ----------------------*/
+.footer {
+    background-color: #daf8f2;
+    padding: 40px 20px;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    width: 23%;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.footer-section p, .footer-section ul {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #0c6e5b;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-section .social-icons a {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #0c6e5b;
+}
+
+.footer-section .instagram-feed img {
+    width: 70px;
+    height: 70px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    object-fit: cover;
+}
+
+.footer-bottom {
+    background-color: #0c6e5b;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-section {
+        width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-section {
+        width: 100%;
+    }
+
+    .footer-section .instagram-feed img {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/*--------------------- Gio hàng -------------------*/
+.cart-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-items {
+    width: 60%;
+}
+
+.cart-items h2 {
+    margin-bottom: 20px;
+}
+
+.cart-items p {
+    font-size: 16px;
+}
+
+.cart-items a {
+    color: green;
+    text-decoration: none;
+}
+
+.order-info {
+    width: 35%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-info h3 {
+    margin-bottom: 15px;
+}
+
+.order-info p {
+    margin: 10px 0;
+}
+
+.order-info textarea {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.checkout-btn:hover {
+    background-color: darkgreen;
+}
+
+/*------------ Tin tức ----------------------*/
+/*----------------- Banner thông tin giới thiệu -----------------*/
+
+.background {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-image: url('https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/2070213/BLJIrnyPGTPczKuk.png');
+    background-size: cover;
+    height: 400px;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 100px 20px;
+}
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.button:hover {
+    background-color: #218838;
+}
+
+/*------------------------ Trang sản phẩm -----------------------------*/
+.breadcrumb{
+    background-color: #e6e6e6;
+    padding: 15px;
+}
+.breadcrumb a{
+    text-decoration: none;
+    color: #000;
+    margin-right: 5px;
+}
+.breadcrumb span{
+    margin-left: 5px;
+}
+/*----------------------- Phân trang ---------------------------*/
+.phantrang {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.phantrang a {
+    margin: 0 5px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.phantrang a.active {
+    background-color: #0c6e5b;
+    color: white;
+    border: 1px solid #0c6e5b;
+}
+
+.phantrang a:hover:not(.active) {
+    background-color: #ddd;
+    color: #0c6e5b;
+}
+.logo-container h3{
+    font-size: 20px;
+
+}
+
+.logo-title {
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 50px;
+    margin: 0;
+}
+
+.bipbip {
+    color: #0c6e5b; /* Màu hồng */
+}

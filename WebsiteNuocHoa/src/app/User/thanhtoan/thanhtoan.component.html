@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+    <link href="./thanhtoan.component.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <div class="header">
+        <div class="main-nav">
+            <div class="logo-search">
+                <div class="logo-container">
+                    <h3 class="logo-title bipbip">Nước Hoa Shop</h3>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Bạn cần tìm">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="user-options">
+                <a href="#"><i class="fa fa-user"></i></a>
+                <a href="#"><i class="fa fa-shopping-bag"></i></a>
+                <a routerLink="/cart" >
+                    <i class="fa fa-shopping-cart"></i>
+                    <span></span> 
+                </a>
+            </div>            
+        </div>
+        <div class="menu-items">
+            <a routerLink="/trangchu">Trang chủ</a>
+            <a routerLink="/sanphamus">Sản phẩm</a>
+            <a routerLink="/tintuc">Tin tức</a>
+            <a routerLink="/gioithieu">Giới thiệu</a>
+        </div>
+    </div> 
+    <div class="breadcrumb">
+        <a routerLink="/trangchu">Trang chủ</a> / <span>Thanh toán</span>
+    </div>
+    <div class="main-content">
+      <div class="left-column">
+        <h2>Thông tin mua hàng</h2>
+        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="email">Email (tùy chọn)</label>
+            <input type="email" id="email" placeholder="Email (tùy chọn)"  formControlName="email" required />
+          </div>
+          <div class="form-group">
+            <label for="name">Họ và tên</label>
+            <input type="text" id="name" placeholder="Họ và tên" formControlName="tenkh" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Số điện thoại</label>
+            <input type="tel" id="phone" placeholder="Số điện thoại" formControlName="sdt" required />
+          </div>
+          <div class="form-group">
+            <label for="address">Địa chỉ (tùy chọn)</label>
+            <input type="text" id="address" placeholder="Địa chỉ (tùy chọn)" formControlName="diachi" required />
+          </div>
+          <div class="form-group">
+            <label for="note">Ghi chú (tùy chọn)</label>
+            <textarea id="note" placeholder="Ghi chú (tùy chọn)" formControlName="ghichu"></textarea>
+          </div>
+          <button class="btntt" type="submit" >Tiếp tục mua hàng</button>
+        </form>
+      </div>
+    
+      <!-- Right column (Order summary) -->
+    <div class="right-column">
+        <h2>Đơn hàng ({{ cartItems.length }} sản phẩm)</h2>
+        <!-- Loop through each product in the cart -->
+        <div *ngFor="let item of cartItems" class="product">
+            <img [src]="'http://localhost:8080/sanpham/uploads/' + item.anhsp" alt="{{ item.tensp }}" style="width: 50px; height: 50px;" />
+            <p>{{ item.tensp }}</p>
+            <p>Đơn giá: {{ item.gia }} VND</p>
+            <p>Số lượng: {{ item.soluong }}</p>
+        </div>
+        <!-- Order summary section, showing total quantity and total price -->
+        <div class="summary">
+        <p><strong>Tổng số lượng: {{ totalQuantity }}</strong></p>
+        <p><strong>Tổng giá: {{ totalAmount }} VND</strong></p>
+        </div>
+        <button class="btntt" type="submit" (click)="onSubmit()">Đặt Hàng</button>
+  </div>
+  
+  </div>   
+    <!------------------ Footer ------------------->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section logo-description">
+                <img src="https://via.placeholder.com/150x50?text=Dola+Organic" alt="Dola Organic">
+                <p>Chúng tôi tin tưởng vào có người sử dụng Việt nam đã được sử dụng những sản phẩm hữu cơ tốt nhất ngoại, lời dạy vỗ an toàn từ một trong những cửa hàng cung cấp thực phẩm rau củ sạch Dola Organic.</p>
+                <h4>HÌNH THỨC THANH TOÁN</h4>
+                <img src="https://via.placeholder.com/100x30?text=Payment+Icons" alt="Payment Methods">
+            </div>
+
+            <div class="footer-section policies">
+                <h4>CHÍNH SÁCH</h4>
+                <ul>
+                    <li><a href="#">Chính sách thành viên</a></li>
+                    <li><a href="#">Chính sách thanh toán</a></li>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Bảo mật thông tin cá nhân</a></li>
+                    <li><a href="#">Quà tặng tri ân</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section general-info">
+                <h4>THÔNG TIN CHUNG</h4>
+                <p>Địa chỉ: 70 Lữ Gia, Phường 15, Quận 11, TP.HCM</p>
+                <p>Điện thoại: 1900 6750</p>
+                <p>Email: supportsapo.vn</p>
+                <h4>LIÊN KẾT SẢN</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section instagram">
+                <h4>INSTAGRAM</h4>
+                <div class="instagram-feed">
+                    <img src="./img/tintuc1.jpg" alt="Instagram Image 1">
+                    <img src="./img/tintuc2.jpg" alt="Instagram Image 2">
+                    <img src="./img/tintuc3.jpg" alt="Instagram Image 3">
+                    <img src="./img/tintuc4.jpg" alt="Instagram Image 4">
+                    <img src="./img/tintuc5.jpg" alt="Instagram Image 5">
+                    <img src="./img/tintuc6.jpg" alt="Instagram Image 6">
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Bản quyền thuộc về tôi</p>
+        </div>
+    </footer>
+</body>
+<script>
+    function selectItem(element) {
+        // Xóa lớp active khỏi tất cả các mục
+        const items = document.querySelectorAll('.category-item');
+        items.forEach(item => item.classList.remove('active'));
+        
+        // Thêm lớp active cho mục được chọn
+        element.classList.add('active');
+    }
+</script>
+<script>
+    let slideIndex = 0;
+showSlides(slideIndex);
+
+function moveSlide(n) {
+    showSlides(slideIndex += n);
+}
+</script>
+<script>
+    document.querySelector('.fa-chevron-up').addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+</script>
+</html>

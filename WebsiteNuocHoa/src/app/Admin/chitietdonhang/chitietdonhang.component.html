@@ -1,0 +1,66 @@
+<div class="container">
+    <h2 class="heading">Danh Sách Đơn Hàng</h2>
+    
+    <table class="order-table">
+      <thead>
+        <tr>
+          <th>Mã Đơn Hàng</th>
+          <th>Tên Khách Hàng</th>
+          <th>Ngày đặt hàng</th>
+          <th>Trạng thái</th>
+          <th>Thao Tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let donhang of donhangList">
+          <td>{{ donhang.madh }}</td>
+          <td>{{ donhang.tenkh }}</td>
+          <td>{{donhang.ngaydathang}}</td>
+          <td>{{donhang.trangthai}}</td>
+          <td>
+            <button class="view-button" (click)="getChiTietDonHangByDonHangId(donhang.madh)">Xem Chi Tiết</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="selectedChiTietDonHangList.length > 0" class="detail-section">
+      <h3>Chi Tiết Đơn Hàng cho Mã Đơn: {{ selectedOrderId }}</h3>
+      <table class="detail-table">
+        <thead>
+          <tr>
+            <th>Mã Chi Tiết</th>
+            <th>Mã Đơn Hàng</th>
+            <th>Mã Sản Phẩm</th>
+            <th>Tổng Tiền</th>
+            <th>Số Lượng</th>
+            <th>Mã Sản Phẩm</th>
+            <th>Mã Sản Phẩm</th>
+            <th>Mã Sản Phẩm</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let chitiet of selectedChiTietDonHangList">
+            <td>{{ chitiet.mact }}</td>
+            <td>{{ chitiet.madh }}</td>
+            <td>{{ chitiet.masp }}</td>
+            <td>{{ chitiet.tongtien }}</td>
+            <td>{{ chitiet.soluong }}</td>
+            <td>{{ chitiet.tensp }}</td>
+            <td><img
+              [src]="'http://localhost:8080/sanpham/uploads/' + chitiet.anhsp"
+              alt="{{ chitiet.tensp }}"
+              style="max-height: 150px;"
+              class="img-thumbnail mt-2"
+              /></td>
+            <td>{{ chitiet.gia }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="selectedChiTietDonHangList.length === 0 && selectedOrderId">
+      <p class="no-details">Không tìm thấy chi tiết cho đơn hàng đã chọn.</p>
+    </div>
+  </div>
+  
